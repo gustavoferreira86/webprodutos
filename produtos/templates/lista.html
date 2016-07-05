@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>Lista de Clientes</h1>
+
+                <table>
+                        <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Idade</th>
+   
+                        </tr>
+                {% for obj in object_list %}
+                        <tr>
+                                <td>{{ obj.get_self.nomeproduto }}</td>
+                                <td>{{ obj.get_self.precoproduto }}</td>
+                                <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
+                            </tr>
+                {% empty %}
+                        <li>Sem itens na lista.</li>
+                {% endfor %}
+                </table>
+{% endblock content %}

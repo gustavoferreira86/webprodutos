@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <form action="/cadastro/" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Criar</button>
+        </form>
+		<form method="get" action="/cadastroFornecedor">
+			<button type="submit">Criar Fornecedor</button>
+		</form>
+		
+		<form method="get" action="/cadastroCategoria">
+			<button type="submit">Criar Categoria</button>
+		</form>
+{% endblock content %}
