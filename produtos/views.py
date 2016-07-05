@@ -13,13 +13,18 @@ from produtos.forms import CategoriaForm
 
 def home(request):
         return render(request,'index.html')
+		
+def viewname(request):
+    produtoid = request.GET['produtoid']
+    produto = Produtos.objects.get(idprodutos=produtoid)
+    return render(request, 'editar.html', {'produto': produto})
 
 def objDetails(request, obj_id):
     try:
         produto = Produtos.objects.get(idproduto=obj_id)
     except produto.DoesNotExist:
         raise Http404
-    return render(request, 'editar', {'produto': produto})
+    return render(request, 'editar/', {'produto': produto})
 
 class CriarProduto(CreateView):
 	template_name = 'cadastro.html'
