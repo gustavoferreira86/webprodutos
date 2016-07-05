@@ -5,16 +5,21 @@
 
                 <table>
                         <tr>
-                                <th>Nome</th>
-                                <th>CPF</th>
-                                <th>Idade</th>
-   
+                                <th>Produto</th>
+                                <th>Preco</th>
+                                <th>Fornecedor</th>
+								<th>Categoria</th>
                         </tr>
                 {% for obj in object_list %}
                         <tr>
                                 <td>{{ obj.get_self.nomeproduto }}</td>
                                 <td>{{ obj.get_self.precoproduto }}</td>
                                 <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
+								<td>{{ obj.get_self.categoria_idcategoria }}</td>
+								<td><form method="get" action="/editar/({{obj.get_self.idprodutos}})" value="obj.get_self">
+									<button type="submit">Editar</button>
+								</form></td>
+								
                             </tr>
                 {% empty %}
                         <li>Sem itens na lista.</li>
