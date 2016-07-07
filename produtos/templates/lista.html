@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de Produtos</h1>
 
                 <table>
                         <tr>
@@ -16,9 +16,12 @@
                                 <td>{{ obj.get_self.precoproduto }}</td>
                                 <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
 								<td>{{ obj.get_self.categoria_idcategoria }}</td>
-								<td><form method="post" action="/editar/?produtoid={{obj.get_self.idprodutos}}">{% csrf_token %}
+								<td>
+								<form method="#" action="/editar/{{obj.get_self.idprodutos}}/">
+								{% csrf_token %}
 									<button type="submit">Editar</button>
-								</form></td>
+								</form>
+								</td>
 								
                             </tr>
                 {% empty %}
