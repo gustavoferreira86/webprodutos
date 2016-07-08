@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import CreateView, ListView, TemplateView
+from django.views.generic import CreateView, ListView, TemplateView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 
 from produtos.models import Produtos
@@ -39,25 +39,43 @@ class EditarProduto(CreateView):
 	form_class = EditarForm
 	success_url = '/lista'
 	
-def save(self, **kwargs):
-        mfields = iter(self._meta.fields)
-        mods = [(f.attname, kwargs[f.attname]) for f in mfields if f.attname in kwargs]
-        for fname, fval in mods: setattr(self, fname, fval)
-        return super(PendingDeprecationWarning, self).save()	
+def save(obj):
+      context = super(EditTemplateView, self).get_context_data(**kwargs)
+      context["form"].update()
+      return render(context, Lista.as_view)
 
 class EditTemplateView(TemplateView):
     template_name = "editar.html"
     form_class = EditarForm
+    success_url = '/lista'
 	
     def get_context_data(self, **kwargs):
+     if self.request.method == 'GET':
         context = super(EditTemplateView, self).get_context_data(**kwargs)
-        context['form'] = Produtos.objects.get(pk=self.kwargs.get('idproduto', None))
-        form = EditarForm(self.request.POST or None, instance=Produtos.objects.get(pk=self.kwargs.get('idproduto', None)))  # instance= None
+        context['form'] = Produtos.objects.get(pk=self.kwargs.get('idprodutos', None))
+        form = ProdutosForm(self.request.POST or None, instance=Produtos.objects.get(pk=self.kwargs.get('idprodutos', None)))  # instance= None
         context["form"] = form
         return context
-    def saveProduto(self, request, pk):
-        return redirect('/lista')
-	
+     else:
+      try:
+          obj = Produto.objects.get(idprodutos=idprodutos)
+          for key, value in updated_values.iteritems():
+              setattr(obj, key, value)
+          obj.save()
+      except Produto.DoesNotExist:
+          updated_values.update(obj)
+          obj = Person(**updated_values)
+          obj.save()
+		  
+class ContatoUpdateView(UpdateView):
+ form_class = ProdutosForm
+ model = Produtos
+ success_url = '/lista/'
+ template_name =  'editar.html'
+ 
+ def get_success_url(self):
+  return '/lista/'
+		
 class Lista(ListView):
         template_name = 'lista.html'
         model = Produtos

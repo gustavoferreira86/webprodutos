@@ -27,6 +27,6 @@ url(r'^cadastroFornecedor/$', CriarFornecedor.as_view(), name='cadastroFornecedo
 url(r'^cadastroCategoria/$', CriarCategoria.as_view(), name='cadastroCategoria'),
 url(r'^lista/$', Lista.as_view(), name='lista'),
 url(r'^admin/', include(admin.site.urls)), 
-url(r'^editar/(?P<idproduto>\d+)/$', EditTemplateView.as_view(), name='editar'),
-url(r'^update/$', EditarProduto.as_view(), name='update'),
+url(r'^editar/(?P<idprodutos>\d+)/$', EditTemplateView.as_view(), name='editar'),
+url(r'^update/(?P<pk>\d+)/$', ContatoUpdateView.as_view(), name='update'),
 )

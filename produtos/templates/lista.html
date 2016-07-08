@@ -17,7 +17,7 @@
                                 <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
 								<td>{{ obj.get_self.categoria_idcategoria }}</td>
 								<td>
-								<form method="#" action="/editar/{{obj.get_self.idprodutos}}/">
+								<form method="GET" action="/update/{{obj.get_self.pk}}/">
 								{% csrf_token %}
 									<button type="submit">Editar</button>
 								</form>

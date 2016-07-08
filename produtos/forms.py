@@ -21,5 +21,6 @@ class CategoriaForm(forms.ModelForm):
 class EditarForm(forms.ModelForm):
     class Meta:
         model = Produtos
-        exclude = ['idprodutos'] 
+        fields = ['precoproduto']
+		
 		
