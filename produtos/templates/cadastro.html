@@ -7,14 +7,16 @@
         <form action="/cadastro/" method="POST">
                 {% csrf_token %}
                 {% crispy form %}
-                <button type="submit">Criar</button>
+				  <div class="row">
+    <div class="col-sm-4">
+                <button style="display: block; width: 100%;" class="btn btn-primary" type="submit">Criar</button></div>
         </form>
-		<form method="get" action="/cadastroFornecedor">
-			<button type="submit">Criar Fornecedor</button>
-		</form>
+		<div class="col-sm-4"><form method="get" action="/cadastroFornecedor">
+			<button style="display: block; width: 100%;" class="btn btn-default" type="submit">Criar Fornecedor</button>
+		</form></div>
 		
-		<form method="get" action="/cadastroCategoria">
-			<button type="submit">Criar Categoria</button>
-		</form>
+		<div class="col-sm-4"><form method="get" action="/cadastroCategoria">
+			<button style="display: block; width: 100%;" class="btn btn-default" type="submit">Criar Categoria</button>
+		</form></div>
 </div>
 {% endblock content %}
