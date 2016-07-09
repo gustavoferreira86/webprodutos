@@ -80,8 +80,6 @@ class Lista(ListView):
         template_name = 'lista.html'
         model = Produtos
         context_object = 'nome'
-		
-def simple_list(request):
-    queryset = Produtos.objects.all()
-    RequestConfig(request).configure(table)
-    return render(request, 'lista.html', {'table': table})
+        order_by = 'nomeproduto'
+        def get_queryset(self):
+         return Produtos.objects.all().order_by('nomeproduto')

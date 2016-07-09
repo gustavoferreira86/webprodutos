@@ -34,7 +34,7 @@ class Produtos(models.Model):
     idprodutos = models.IntegerField(db_column='idProdutos', primary_key=True, blank=True, null=False)  # Field name made lowercase.
     fornecedores_idfornecedores = models.ForeignKey(Fornecedores, models.DO_NOTHING, db_column='Fornecedores_idFornecedores', blank=True, null=True, verbose_name='Fornecedor')  # Field name made lowercase.
     nomeproduto = models.CharField(max_length=100, db_column='nomeProduto', unique=True, verbose_name='Nome')  # Field name made lowercase. This field type is a guess.
-    precoproduto = models.CharField(max_length=100, db_column='precoProduto', verbose_name='Preco')  # Field name made lowercase. This field type is a guess.
+    precoproduto = models.DecimalField(max_digits=6, decimal_places=2, db_column='precoProduto', verbose_name='Preco')  # Field name made lowercase. This field type is a guess.
     categoria_idcategoria = models.ForeignKey(Categoria, models.DO_NOTHING, db_column='Categoria_idCategoria', blank=True, null=True, verbose_name='Categoria')  # Field name made lowercase.
 
     def get_self(self):
