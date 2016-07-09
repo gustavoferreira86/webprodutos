@@ -1,32 +1,35 @@
 {% extends 'base.html' %}
-
 {% block content %}
-        <h1>Lista de Produtos</h1>
-<div class="pure-table pure-table-horizontal" >
-                <table>
-                        <tr>
-                                <th>Produto</th>
-                                <th>Preco</th>
-                                <th>Fornecedor</th>
-								<th>Categoria</th>
-                        </tr>
-                {% for obj in object_list %}
-                        <tr>
-                                <td>{{ obj.get_self.nomeproduto }}</td>
-                                <td>{{ obj.get_self.precoproduto }}</td>
-                                <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
-								<td>{{ obj.get_self.categoria_idcategoria }}</td>
-								<td>
-								
-								<form method="GET" action="/update/{{obj.get_self.pk}}/">
-								{% csrf_token %}
-									<button type="submit">Editar</button>
-								</form>
-								</td>
-								
-                            </tr>
-                {% empty %}
-                        <li>Sem itens na lista.</li>
-                {% endfor %}
-                </table</div>
+<div class="container">
+         <h1>Lista de Produtos</h1>
+         
+         <table class="display datatable table table-striped table-bordered" data-source-url="{{ url }}"
+            data-result-counter-id="{{ config.result_counter_id }}"
+            data-page-length="{{ config.page_length }}">
+            <thead>
+            <tr>
+               <th>Produto</th>
+               <th>Preco</th>
+               <th>Fornecedor</th>
+               <th>Categoria</th>
+            </tr>
+			</thead>
+            {% for obj in object_list %}
+            <tr>
+               <td>{{ obj.get_self.nomeproduto }}</td>
+               <td>{{ obj.get_self.precoproduto }}</td>
+               <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
+               <td>{{ obj.get_self.categoria_idcategoria }}</td>
+               <td>
+                  <form method="GET" action="/update/{{obj.get_self.pk}}/">
+                     {% csrf_token %}
+                     <button type="submit">Editar</button>
+                  </form>
+               </td>
+            </tr>
+            {% empty %}
+            <li>Sem itens na lista.</li>
+            {% endfor %}
+         </table>
+</div>
 {% endblock content %}

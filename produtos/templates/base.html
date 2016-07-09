@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'">
-<link rel="stylesheet" href="{% static 'css/produto.css' %}" type="text/css" media="all">
-<link rel="stylesheet" href="{% static 'css/pure-min.css' %}" type="text/css" media="all">
+{% load crispy_forms_tags %}
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <html>
 <head>
+<div class="jumbotron text-center">
         {% block title %}
-                <div class="page-header">
+                
     <h1><a href="/">Produtos</a></h1>
 </div>
         {% endblock title %}
 </head>
 <body>
-        <div class="top-header">
-                <ul>
+       <div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+                <ul><h3>
                         <li><a href="{% url 'home' %}">Inicio</a></li>
                         <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
                         <li><a href="{% url 'lista' %}">Lista</a></li>
-                </ul>
-        </div>
-<div class="content">
+                </ul></h3>
+        </div></div></div>
+
         {% block content %}
 
         {% endblock content %}
-		</div>
+
 </body>
 </html>
