@@ -2,7 +2,7 @@
 
 {% block content %}
         <h1>Lista de Produtos</h1>
-
+<div class="pure-table pure-table-horizontal" >
                 <table>
                         <tr>
                                 <th>Produto</th>
@@ -17,6 +17,7 @@
                                 <td>{{ obj.get_self.fornecedores_idfornecedores }}</td>
 								<td>{{ obj.get_self.categoria_idcategoria }}</td>
 								<td>
+								
 								<form method="GET" action="/update/{{obj.get_self.pk}}/">
 								{% csrf_token %}
 									<button type="submit">Editar</button>
@@ -27,5 +28,5 @@
                 {% empty %}
                         <li>Sem itens na lista.</li>
                 {% endfor %}
-                </table>
+                </table</div>
 {% endblock content %}

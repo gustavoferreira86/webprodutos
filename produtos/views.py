@@ -68,7 +68,7 @@ class EditTemplateView(TemplateView):
           obj.save()
 		  
 class ContatoUpdateView(UpdateView):
- form_class = ProdutosForm
+ form_class = EditarForm
  model = Produtos
  success_url = '/lista/'
  template_name =  'editar.html'

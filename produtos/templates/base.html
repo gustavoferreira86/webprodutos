@@ -1,21 +1,29 @@
 <!DOCTYPE html>
+{% load staticfiles %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/produto.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/pure-min.css' %}" type="text/css" media="all">
 <html>
 <head>
         {% block title %}
-                <title>Titulo</title>
+                <div class="page-header">
+    <h1><a href="/">Produtos</a></h1>
+</div>
         {% endblock title %}
 </head>
 <body>
-        <div>
+        <div class="top-header">
                 <ul>
                         <li><a href="{% url 'home' %}">Inicio</a></li>
                         <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
                         <li><a href="{% url 'lista' %}">Lista</a></li>
                 </ul>
         </div>
-
+<div class="content">
         {% block content %}
 
         {% endblock content %}
+		</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ from django.db import models
 
 class Categoria(models.Model):
     idcategoria = models.IntegerField(db_column='idCategoria', primary_key=True, blank=True, null=False)  # Field name made lowercase.
-    nomecategoria = models.TextField(db_column='nomeCategoria', verbose_name='Categoria')  # Field name made lowercase. This field type is a guess.
+    nomecategoria = models.CharField(max_length=100, db_column='nomeCategoria', verbose_name='Categoria')  # Field name made lowercase. This field type is a guess.
     def __str__(self):
      return '%s' % (self.nomecategoria)
     class Meta:
@@ -22,7 +22,7 @@ class Categoria(models.Model):
 
 class Fornecedores(models.Model):
     idfornecedor = models.IntegerField(db_column='idFornecedor', primary_key=True, blank=True, null=False)  # Field name made lowercase.
-    nomefornecedor = models.TextField(db_column='nomeFornecedor', unique=True, verbose_name='Fornecedor')  # Field name made lowercase. This field type is a guess.
+    nomefornecedor = models.CharField(max_length=100, db_column='nomeFornecedor', unique=True, verbose_name='Fornecedor')  # Field name made lowercase. This field type is a guess.
     def __str__(self):
      return '%s' % (self.nomefornecedor)
     class Meta:
@@ -33,8 +33,8 @@ class Fornecedores(models.Model):
 class Produtos(models.Model):
     idprodutos = models.IntegerField(db_column='idProdutos', primary_key=True, blank=True, null=False)  # Field name made lowercase.
     fornecedores_idfornecedores = models.ForeignKey(Fornecedores, models.DO_NOTHING, db_column='Fornecedores_idFornecedores', blank=True, null=True, verbose_name='Fornecedor')  # Field name made lowercase.
-    nomeproduto = models.TextField(db_column='nomeProduto', unique=True, verbose_name='Nome')  # Field name made lowercase. This field type is a guess.
-    precoproduto = models.TextField(db_column='precoProduto', verbose_name='Preco')  # Field name made lowercase. This field type is a guess.
+    nomeproduto = models.CharField(max_length=100, db_column='nomeProduto', unique=True, verbose_name='Nome')  # Field name made lowercase. This field type is a guess.
+    precoproduto = models.CharField(max_length=100, db_column='precoProduto', verbose_name='Preco')  # Field name made lowercase. This field type is a guess.
     categoria_idcategoria = models.ForeignKey(Categoria, models.DO_NOTHING, db_column='Categoria_idCategoria', blank=True, null=True, verbose_name='Categoria')  # Field name made lowercase.
 
     def get_self(self):

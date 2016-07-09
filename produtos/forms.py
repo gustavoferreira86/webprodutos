@@ -6,7 +6,10 @@ from produtos.models import Categoria
 class ProdutosForm(forms.ModelForm):
     class Meta:
         model = Produtos
-        exclude = ['idprodutos'] 
+        exclude = ['idprodutos']
+        css = {
+        'all': ('produto.css',)
+         }		
 		
 class FornecedoresForm(forms.ModelForm):
     class Meta:
@@ -21,6 +24,6 @@ class CategoriaForm(forms.ModelForm):
 class EditarForm(forms.ModelForm):
     class Meta:
         model = Produtos
-        fields = ['precoproduto']
+        fields = ['precoproduto', 'fornecedores_idfornecedores']
 		
 		
