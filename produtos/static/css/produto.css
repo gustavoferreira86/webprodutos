@@ -26,6 +26,19 @@
 	  }
 }
 
+@media (max-width: @screen-xs) {
+    body{font-size: 22px;}
+}
+
+@media (max-width: @screen-sm) {
+    body{font-size: 30px;}
+}
+
+
+h5{
+    font-size: 1.4em;
+} 
+
 h1, h2, h3, h4 {
     font-family: 'Arial', cursive;
 }
