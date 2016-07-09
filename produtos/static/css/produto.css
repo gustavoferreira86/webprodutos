@@ -20,6 +20,10 @@
 
 .content {
     margin-left: 40px;
+	@media (max-width: 800px) {
+		float: none;
+		width: 100%;
+	  }
 }
 
 h1, h2, h3, h4 {
