@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4">
 <h1>Cadastro</h1>
         <form action="/cadastro/" method="POST">
                 {% csrf_token %}
@@ -18,5 +16,5 @@
 		<form method="get" action="/cadastroCategoria">
 			<button type="submit">Criar Categoria</button>
 		</form>
-		</div></div></div>
+</div>
 {% endblock content %}
