@@ -21,16 +21,22 @@ class ProdutosForm(forms.ModelForm):
 
 		
 class FornecedoresForm(forms.ModelForm):
+    helper = FormHelper()
+    helper.form_tag = False
     class Meta:
         model = Fornecedores
         exclude = ['idfornecedor'] 
 
 class CategoriaForm(forms.ModelForm):
+    helper = FormHelper()
+    helper.form_tag = False
     class Meta:
         model = Categoria
         exclude = ['idcategoria'] 
 
 class EditarForm(forms.ModelForm):
+    helper = FormHelper()
+    helper.form_tag = False
     class Meta:
         model = Produtos
         fields = ['precoproduto', 'fornecedores_idfornecedores']
