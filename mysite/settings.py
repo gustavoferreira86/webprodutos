@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 	'produtos',
 	'crispy_forms',
 	'django_tables2',
+	'input_mask',
 ]
 
 MIDDLEWARE_CLASSES = [

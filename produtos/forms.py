@@ -4,6 +4,9 @@ from produtos.models import Produtos
 from produtos.models import Fornecedores
 from produtos.models import Categoria
 import django_tables2 as tables
+from input_mask.contrib.localflavor.us.widgets import (
+    USDecimalInput,
+)
 
 class SimpleTable(tables.Table):
     editable = tables.LinkColumn('edit_form',verbose_name='edit')
@@ -18,6 +21,9 @@ class ProdutosForm(forms.ModelForm):
     class Meta:
         model = Produtos
         exclude = ['idprodutos']
+        widgets = {
+          'precoproduto': USDecimalInput, 'style':'display: block; width: 100%;',
+        }
 
 		
 class FornecedoresForm(forms.ModelForm):
